@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Written by Shannon Tetley N6255078-->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Picolo.Views.QuizBrowserPage">
+             <!--xmlns:vm="clr-namespace:Picolo.ViewModels"-->
+             <!--Title="{Binding Title}">-->
+
+    <!--<ContentPage.BindingContext>
+        <vm:QuizBrowserViewModel />
+    </ContentPage.BindingContext>-->
+
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <!--Test of swipe controls-->
+            <!--Keeping this for reference-->
+            <!--<Grid.GestureRecognizers>
+                <SwipeGestureRecognizer Direction="Left" Swiped="OnSwiped"
+                                        Command="{Binding QuizLobbyCommand}" 
+                                        CommandParameter="Left"
+                />
+            </Grid.GestureRecognizers>-->
+            
+            <StackLayout> <!--This line makes it a stack instead of grid-->
+                <Label Text="Quiz Browser"
+                    VerticalOptions="Start" 
+                    HorizontalOptions="CenterAndExpand" 
+                    FontSize="40" Padding="0,50,0,0"/>
+                <Label Text="Select the quiz you wish to attempt."
+                    VerticalOptions="Center" 
+                    HorizontalOptions="CenterAndExpand"
+                    FontSize="20" Padding="0,30,0,30"/>
+                <Button  Text="{Binding BrowserButton1}" Padding="0,0,0,0"
+                         VerticalOptions="Start" 
+                         HorizontalOptions="CenterAndExpand" 
+                         BackgroundColor="#3979B3"
+                         Command="{Binding QuizLobbyCommand}"
+                         />
+                <!--Commented out until implimented.-->
+                <!--<Button  Text="Quiz 2" Padding="0,0,0,0"
+                         VerticalOptions="Start" 
+                         HorizontalOptions="CenterAndExpand" 
+                         BackgroundColor="#3979B3"/>-->
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

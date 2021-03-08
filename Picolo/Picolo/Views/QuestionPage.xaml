@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Written by Shannon Tetley N6255078-->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Picolo.Views.QuestionPage"
+             Title="{Binding QuestionTitle}">
+             <!--xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Shell.NavBarIsVisible="False">-->
+    <!--Overide the backbutton command-->
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior
+            Command="{Binding CloseQuestionCommand}"
+            IsEnabled="True"
+            TextOverride="Back" />
+    </Shell.BackButtonBehavior>
+    <ContentPage.Content>     
+        <Grid Margin="25,35,25,35" RowSpacing="20" ColumnSpacing="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <!--Gesture control for the page.-->
+            <Grid.GestureRecognizers>
+                <SwipeGestureRecognizer Direction="Left" Swiped="OnSwiped"
+                                        Command="{Binding Quiz1Command}" 
+                                        CommandParameter="Left"
+                />
+                <SwipeGestureRecognizer Direction="Right" Swiped="OnSwiped"
+                                        Command="{Binding CloseQuestionCommand}" 
+                                        CommandParameter="Right"
+                />
+            </Grid.GestureRecognizers>
+
+            <!--HEADING (moved to nav bar)-->
+            <!--<Label Grid.ColumnSpan="2" Text="{Binding QuestionTitle}"
+               HorizontalOptions="CenterAndExpand" 
+               FontSize="Title"
+            />-->
+            <!--Text="{Binding QuestionTitle}"-->
+            
+            
+            <Grid Grid.Row="0" Grid.ColumnSpan="2" BackgroundColor="{StaticResource Primary}">
+                <!--Quesitons and radio buttons-->
+                <Label Text="{Binding Description}"
+                VerticalOptions="Center" 
+                HorizontalOptions="CenterAndExpand"
+                FontSize="Title" Padding="20,30,20,30"
+                   />
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.ColumnSpan="2" BackgroundColor="{StaticResource Secondary}">
+                <Label Text="{Binding Answer1}" Padding="0,0,0,0" Margin="0,0,30,0"
+                       VerticalOptions="Center" 
+                       HorizontalOptions="CenterAndExpand"
+                />
+                <RadioButton Text="1"
+                             VerticalOptions="Center" 
+                             HorizontalOptions="Start" 
+                             Margin="10,0,30,0"
+                             GroupName="Options"
+                             IsChecked="{Binding Radio1}"
+                             CheckedChanged="SelectionHandler"
+                             CommandParameter="1"
+                             Command="{Binding OptionsCommand}"/>
+            </Grid>
+
+            <Grid Grid.Row="2" Grid.ColumnSpan="2" BackgroundColor="{StaticResource Secondary}">
+                <Label Text="{Binding Answer2}" Padding="0,0,0,0" Margin="0,0,30,0"
+                       VerticalOptions="Center" 
+                       HorizontalOptions="CenterAndExpand"
+                />
+                <RadioButton Text="2"
+                             VerticalOptions="Center" 
+                             HorizontalOptions="Start" 
+                             Margin="10,0,30,0"
+                             GroupName="Options"
+                             IsChecked="{Binding Radio2}"
+                             CheckedChanged="SelectionHandler"
+                             CommandParameter="2"
+                             Command="{Binding OptionsCommand}"/>
+            </Grid>
+
+            <Grid Grid.Row="3" Grid.ColumnSpan="2" BackgroundColor="{StaticResource Secondary}">
+                <Label Text="{Binding Answer3}" Padding="0,0,0,0" Margin="0,0,30,0"
+                       VerticalOptions="Center" 
+                       HorizontalOptions="CenterAndExpand"
+                />
+                <RadioButton Text="3"
+                             VerticalOptions="Center" 
+                             HorizontalOptions="Start" 
+                             Margin="10,0,30,0"
+                             GroupName="Options"
+                             IsChecked="{Binding Radio3}"
+                             CheckedChanged="SelectionHandler"
+                             CommandParameter="3"
+                             Command="{Binding OptionsCommand}"/>
+            </Grid>
+
+            <Grid Grid.Row="4" Grid.ColumnSpan="2" BackgroundColor="{StaticResource Secondary}">
+                <Label Text="{Binding Answer4}" Padding="0,0,0,0" Margin="0,0,30,0"
+                       VerticalOptions="Center" 
+                       HorizontalOptions="CenterAndExpand"
+                />
+                <RadioButton Text="4"
+                             VerticalOptions="Center" 
+                             HorizontalOptions="Start" 
+                             Margin="10,0,30,0"
+                             GroupName="Options"
+                             IsChecked="{Binding Radio4}"
+                             CheckedChanged="SelectionHandler"
+                             CommandParameter="4"
+                             Command="{Binding OptionsCommand}"/>
+            </Grid>
+
+            <!--Not implimented-->
+            <!--<Grid Grid.Row="4" Grid.ColumnSpan="2" BackgroundColor="{StaticResource Secondary}">
+                <Label Text="{Binding TimeDisplay}" Padding="0,0,0,0" Margin="0,0,0,0"
+                       VerticalOptions="Center" 
+                       HorizontalOptions="CenterAndExpand"
+                />
+            </Grid>-->
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

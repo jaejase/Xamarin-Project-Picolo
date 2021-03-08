@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Written by Aaron Hayton N9946977-->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Picolo.Views.PartyView"
+             Title="{Binding Title}"
+             >
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior
+            IsEnabled="False"
+            IconOverride="test.png"/>
+    </Shell.BackButtonBehavior>
+    <ContentPage.Content>
+        <RefreshView Command="{Binding FillData}" >
+            <ScrollView>
+                <StackLayout Padding="0,0,0,50" x:Name="stacklayout">
+                    <Grid Margin="35,35,35,35" RowSpacing="15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.3*" />
+                            <ColumnDefinition Width="0.3*" />
+                            <ColumnDefinition Width="0.3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="60" />
+                            <RowDefinition Height="60" />
+                            <RowDefinition Height="60" />
+                            <RowDefinition Height="60" />
+                            <RowDefinition Height="60" />
+                            <RowDefinition Height="60" />
+                        </Grid.RowDefinitions>
+
+                        <!--PARTY NAME-->
+                        <Label Grid.ColumnSpan="3"
+                           HorizontalOptions="Start" 
+                           HorizontalTextAlignment="Start"
+                           VerticalTextAlignment="Start"
+                           Grid.Row="0"
+                           FontSize="Title"
+                           Text="{Binding GroupName}"
+                           FontAttributes="Bold"
+                           />
+
+                        <!--PARTY MEMBER 1-->
+                        <Ellipse Grid.Row="1" 
+                             Grid.Column="0" 
+                             Fill="#FFD185" 
+                             WidthRequest="50" 
+                             HeightRequest="50" 
+                             Aspect="Uniform"
+                             />
+                        <Image Grid.Row="1" 
+                           Grid.Column="0" 
+                           Source="avatar2.png"  
+                           Aspect="AspectFit" 
+                           Margin="10" 
+                           />
+                        <!--USERNAME AND LEVEL-->
+                        <StackLayout Grid.Row="1"
+                                 Grid.Column="1"
+                                 Grid.ColumnSpan="2"
+                                 Padding="0,0,0,10"
+                                 >
+                            <!--NAME-->
+                            <Label HorizontalOptions="Start"
+                               Grid.ColumnSpan="2"
+                               FontAttributes="Bold"
+                               FontSize="Large"
+                               Text="{Binding User1Name}"
+                               Margin="0,5,0,-10"
+                               />
+                            <!--LEVEL-->
+                            <Label HorizontalOptions="Start" 
+                               FontSize="Small" 
+                               Text="{Binding User1Level, StringFormat='Level: {0}'}"
+                               Margin="0,0,0,-10"
+                               />
+                            <!--PROGRESS BAR-->
+                            <ProgressBar VerticalOptions="Fill"
+                                     HorizontalOptions="Fill"
+                                     Progress="{Binding User1Percent}"
+                                     Margin="0,0,20,0"
+                                     ProgressColor="{StaticResource Progress}"
+                                     />
+                        </StackLayout>
+
+                        <!--PARTY MEMBER 2-->
+                        <Ellipse Grid.Row="2" 
+                             Grid.Column="0" 
+                             Fill="#FFD185" 
+                             WidthRequest="50" 
+                             HeightRequest="50" 
+                             Aspect="Uniform"
+                             />
+                        <Image Grid.Row="2" 
+                           Grid.Column="0" 
+                           Source="avatar2.png"  
+                           Aspect="AspectFit" 
+                           Margin="10" 
+                           />
+                        <!--USERNAME AND LEVEL-->
+                        <StackLayout Grid.Row="2"
+                                 Grid.Column="1"
+                                 Grid.ColumnSpan="2"
+                                 Padding="0,0,0,10"
+                                 >
+                            <!--NAME-->
+                            <Label HorizontalOptions="Start"
+                               Grid.ColumnSpan="2"
+                               FontAttributes="Bold"
+                               FontSize="Large"
+                               Text="{Binding User2Name}"
+                               Margin="0,5,0,-10"
+                               />
+                            <!--LEVEL-->
+                            <Label HorizontalOptions="Start" 
+                               FontSize="Small" 
+                               Text="{Binding User2Level, StringFormat='Level: {0}'}"
+                               Margin="0,0,0,-10"
+                               />
+                            <!--PROGRESS BAR-->
+                            <ProgressBar VerticalOptions="Fill"
+                                     HorizontalOptions="Fill"
+                                     Progress="{Binding User2Percent}"
+                                     Margin="0,0,20,0"
+                                     ProgressColor="{StaticResource Progress}"
+                                     />
+                        </StackLayout>
+
+                        <!--PARTY MEMBER 3-->
+                        <Ellipse Grid.Row="3" 
+                                 Grid.Column="0" 
+                                 Fill="#FFD185" 
+                                 WidthRequest="50" 
+                                 HeightRequest="50" 
+                                 Aspect="Uniform"
+                                 />
+                        <Image Grid.Row="3" 
+                               Grid.Column="0" 
+                               Source="avatar2.png"  
+                               Aspect="AspectFit" 
+                               Margin="10" 
+                               />
+                        <!--USERNAME AND LEVEL-->
+                        <StackLayout Grid.Row="3"
+                                     Grid.Column="1"
+                                     Grid.ColumnSpan="2"
+                                     Padding="0,0,0,10"
+                                     >
+                            <!--NAME-->
+                            <Label HorizontalOptions="Start"
+                                   Grid.ColumnSpan="2"
+                                   FontAttributes="Bold"
+                                   FontSize="Large"
+                                   Text="{Binding User3Name}"
+                                   Margin="0,5,0,-10"
+                                   />
+                            <!--LEVEL-->
+                            <Label HorizontalOptions="Start" 
+                                   FontSize="Small" 
+                                   Text="{Binding User3Level, StringFormat='Level: {0}'}"
+                                   Margin="0,0,0,-10"
+                                   />
+                            <!--PROGRESS BAR-->
+                            <ProgressBar VerticalOptions="Fill"
+                                         HorizontalOptions="Fill"
+                                         Progress="{Binding User3Percent}"
+                                         Margin="0,0,20,0"
+                                         ProgressColor="{StaticResource Progress}"
+                                         />
+                        </StackLayout>
+
+                        <!--PARTY MEMBER 4-->
+                        <Ellipse Grid.Row="4" 
+                             Grid.Column="0" 
+                             Fill="#FFD185" 
+                             WidthRequest="50" 
+                             HeightRequest="50" 
+                             Aspect="Uniform"
+                             />
+                        <Image Grid.Row="4" 
+                           Grid.Column="0" 
+                           Source="avatar2.png"  
+                           Aspect="AspectFit" 
+                           Margin="10" 
+                           />
+                        <!--USERNAME AND LEVEL-->
+                        <StackLayout Grid.Row="4"
+                                 Grid.Column="1"
+                                 Grid.ColumnSpan="2"
+                                 Padding="0,0,0,10"
+                                 >
+                            <!--NAME-->
+                            <Label HorizontalOptions="Start"
+                               Grid.ColumnSpan="2"
+                               FontAttributes="Bold"
+                               FontSize="Large"
+                               Text="{Binding User4Name}"
+                               Margin="0,5,0,-10"
+                               />
+                            <!--LEVEL-->
+                            <Label HorizontalOptions="Start" 
+                               FontSize="Small" 
+                               Text="{Binding User4Level, StringFormat='Level: {0}'}"
+                               Margin="0,0,0,-10"
+                               />
+                            <!--PROGRESS BAR-->
+                            <ProgressBar VerticalOptions="Fill"
+                                         HorizontalOptions="Fill"
+                                         Progress="{Binding User4Percent}"
+                                         Margin="0,0,20,0"
+                                         ProgressColor="{StaticResource Progress}"
+                                         />
+                        </StackLayout>
+
+                        <!--PARTY LEVEL AND PROGRESS-->
+                        <StackLayout Grid.Column="0"
+                         Grid.Row="5"
+                         Grid.ColumnSpan="3"
+                         >
+                            <Label Text="{Binding GroupLevel, StringFormat='Party Level: {0}'}"
+                               FontSize="Large"
+                               Margin="0,30,0,0"
+                               />
+                            <ProgressBar VerticalOptions="Fill"
+                                     HorizontalOptions="FillAndExpand"
+                                     Progress="{Binding GroupPercent}"
+                                     Margin="0,0,0,0"
+                                     ProgressColor="{StaticResource Progress}"
+                                     />
+                        </StackLayout>
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+        </RefreshView>
+    </ContentPage.Content>
+</ContentPage>

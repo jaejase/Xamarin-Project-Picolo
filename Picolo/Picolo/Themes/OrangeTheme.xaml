@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <!--x:Class="ThemingDemo.OrangeTheme">-->
+
+    <Color x:Key="Primary">#FFD185</Color>
+    <Color x:Key="Secondary">#3979B3</Color>
+    <Color x:Key="PrimaryText">#47525E</Color>
+    <Color x:Key="Progress">#85C5FF</Color>
+    <Color x:Key="SettingsColor">#FFFFFF</Color>
+
+</ResourceDictionary>

@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Written by Shannon Tetley N6255078-->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Picolo.Views.QuizLobbyPage"
+             Title="{Binding Title}">
+    <ContentPage.Content>
+        
+        <Grid Margin="25,35,25,35" RowSpacing="20" ColumnSpacing="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <!--<RowDefinition Height="0.1*" />
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="0.3*"/>-->
+            </Grid.RowDefinitions>
+            <!--Swipe Controler-->
+            <Grid.GestureRecognizers>
+                <SwipeGestureRecognizer Direction="Left" Swiped="OnSwiped"
+                                        Command="{Binding Quiz1Command}" 
+                                        CommandParameter="Left"
+                />
+            </Grid.GestureRecognizers>
+
+
+
+            <!--HEADING-->
+            <Grid Grid.Row="0" Grid.ColumnSpan="2" BackgroundColor="{StaticResource Primary}">
+                <StackLayout>
+                    <Label Text="{Binding LobbyTitle}" 
+                        Padding="20,30,20,30" Margin="0,0,0,0"
+                        VerticalOptions="Center"
+                        HorizontalOptions="CenterAndExpand" 
+                        FontSize="Title"
+                    />
+                </StackLayout>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.ColumnSpan="2">
+                <!--<StackLayout>-->
+                    <!--Pulls the number of questions from the database when
+                    fully implemented.-->
+                    <Label Text="{Binding NumQuestions}" TextColor="{StaticResource PrimaryText}" 
+                       VerticalOptions="Center" 
+                       HorizontalOptions="CenterAndExpand" 
+                       FontSize="18" Padding="0,0,0,0" Margin="0,0,0,0"
+                    />
+                    
+                <!--</StackLayout>-->
+            </Grid>
+
+            <Grid Grid.Row="3" Grid.ColumnSpan="2">
+                
+                <!--It's ok to hard code this Label-->
+                <Label Text="{Binding TimeLimit}" TextColor="{StaticResource PrimaryText}"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="CenterAndExpand"
+                        FontSize="18" Padding="0,0,0,0" Margin="0,0,0,0"
+                    />
+                <!--Dynamically code this timer-->
+                <!--<Label Text="10min"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="CenterAndExpand"
+                        FontSize="40" Padding="0,30,0,30"
+                />-->
+            </Grid>
+
+            <Grid Grid.Row="4" Grid.ColumnSpan="2" BackgroundColor="{StaticResource Secondary}">
+                <Label Text="Swipe to navigate." Padding="0,0,0,0" Margin="0,0,0,0"
+                       VerticalOptions="Center" 
+                       HorizontalOptions="CenterAndExpand"
+                       FontSize="18"
+                />
+                <!--Not implimented yet.-->
+                <!--<Switch IsToggled="false"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Start" 
+                        Margin="10,0,30,0"
+                />-->
+            </Grid>
+
+            
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Written by Minseong (Jason) Kim N10218807-->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Picolo.Views.SettingsPage"
+             Title="Settings Page">
+    <ContentPage.Content>
+        <Grid Margin="25,50,25,35">
+            <StackLayout HorizontalOptions="Center">
+                <Image Source="key.png" Aspect="AspectFit"  HeightRequest="120" Margin="0,0,0,30"/>
+                <Label Text="Coming soon. Check back later." FontSize="Title" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

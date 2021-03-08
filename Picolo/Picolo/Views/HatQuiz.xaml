@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Written by Aaron Hayton N9946977-->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Picolo.Views.HatQuiz"
+             Title="{Binding Title}"
+             >
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior
+            IsEnabled="False"
+            IconOverride="test.png"/>
+    </Shell.BackButtonBehavior>
+    <ContentPage.Content>
+        <StackLayout Margin="25,35,25,35">
+            <Label Text="Six Hat Selection Quiz"
+                   FontSize="Title"
+                   HorizontalTextAlignment="Center"
+                   Padding="0,0,0,40"
+                   TextColor="#47525E"
+                   />
+            <Label HorizontalOptions="CenterAndExpand" 
+                   Text="To join a group for this unit please complete the 6-hat survey and find out your hat colour." 
+                   FontSize="Subtitle"
+                   HorizontalTextAlignment="Center"
+                   Padding="0,0,0,20"
+                   TextColor="#47525E"
+                   />
+            <Label HorizontalOptions="CenterAndExpand"
+                   Text="This helps groups to work well together by ensuring members are compatable to cooperate and coordinate well."
+                   FontSize="Subtitle"
+                   HorizontalTextAlignment="Center"
+                   TextColor="#47525E"
+                   />
+            <Button Text="What Hat Am I?"
+                    FontSize="Large"
+                    FontAttributes="Bold"
+                    VerticalOptions="Center" 
+                    Margin="0,30,0,0"
+                    BackgroundColor="{StaticResource Secondary}"
+                    CornerRadius="5"
+                    Command="{Binding StartHatQuiz}"
+                    />
+
+            <Grid Margin="10,10,10,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*" />
+                    <RowDefinition Height="0.5*" />
+                </Grid.RowDefinitions>
+                <Image Source="stars.png" 
+                   Aspect="AspectFit"
+                   Grid.Row="0"
+                   />
+                <Label Text="&quot;Teamwork makes the dream work&quot;"
+                   FontSize="Subtitle"
+                   Grid.Row="1"
+                   HorizontalTextAlignment="Center"
+                   FontAttributes="Italic"
+                   TextColor="#47525E"
+                   />
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

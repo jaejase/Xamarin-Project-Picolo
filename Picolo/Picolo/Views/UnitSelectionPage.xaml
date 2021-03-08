@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Picolo.Views.UnitSelectionPage"
+             Title="{Binding Title}">
+
+    <Grid Margin="25,35,25,35" RowSpacing="20" ColumnSpacing="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*" />
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.3*"/>
+        </Grid.RowDefinitions>
+
+        <!--HEADING-->
+        <Label Grid.ColumnSpan="2"
+               HorizontalOptions="CenterAndExpand" 
+               FontSize="Title"
+               Text="Select a Unit" 
+               />
+
+        <Grid Grid.Row="1" Grid.Column="0" BackgroundColor="{StaticResource Primary}">
+            <Label Text="ABC123" HorizontalOptions="Center" VerticalOptions="End" Padding="0,5"
+             />
+            <Image Source="avatar.png" Aspect="AspectFit" Margin="30,30,30,30" />
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="1" BackgroundColor="{StaticResource Primary}">
+            <Label Text="ABC123" HorizontalOptions="Center" VerticalOptions="End" Padding="0,5"
+             />
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="0" BackgroundColor="{StaticResource Primary}">
+            <Label Text="ABC123" HorizontalOptions="Center" VerticalOptions="End" Padding="0,5"
+             />
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="1" BackgroundColor="{StaticResource Primary}">
+            <Label Text="ABC123" HorizontalOptions="Center" VerticalOptions="End" Padding="0,5"
+             />
+        </Grid>
+
+        <Grid Grid.Row="3" Grid.Column="0" BackgroundColor="{StaticResource Primary}">
+            <Label Text="ABC123" HorizontalOptions="Center" VerticalOptions="End" Padding="0,5"
+             />
+        </Grid>
+
+        <Grid Grid.Row="3" Grid.Column="1" BackgroundColor="{StaticResource Primary}">
+            <Label Text="ABC123" HorizontalOptions="Center" VerticalOptions="End" Padding="0,5"
+             />
+        </Grid>
+    </Grid>
+
+</ContentPage>

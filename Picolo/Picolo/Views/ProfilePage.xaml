@@ -1,0 +1,585 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Written by Minseong (Jason) Kim N10218807-->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Picolo.Views.ProfilePage"
+             Title="My Profile: IAB330">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Settings" IconImageSource="settings_line.png" Command="{Binding GoToSettingsCommand}" />
+    </ContentPage.ToolbarItems>
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior
+            IsEnabled="False"
+            IconOverride="test.png"/>
+    </Shell.BackButtonBehavior>
+    <ContentPage.Content>
+        <RefreshView Command="{Binding RefreshData}">
+            <ScrollView>
+                <Grid Margin="35,35,35,35" RowSpacing="15">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="310" />
+                        <RowDefinition Height="70" />
+                        <RowDefinition Height="220" />
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="220" />
+                    </Grid.RowDefinitions>
+
+                    <StackLayout
+                    Grid.Row ="0"
+                    Grid.Column ="0"
+                    Grid.ColumnSpan ="4"
+                    >
+
+                        <Grid>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="80" />
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="80" />
+                            </Grid.RowDefinitions>
+
+                            <!--MY PICOLO LEVEL-->
+
+                            <StackLayout
+                        Grid.Row ="0"
+                        Grid.Column ="0"
+                        Grid.ColumnSpan ="3">
+
+                                <Label Text ="{Binding PersonalLevel, StringFormat='MY Picolo Level: {0:F0}'}"
+                            TextColor="Black"
+                            FontSize="25"
+                            FontAttributes="Bold"
+                            Margin="0,-5,0,0"/>
+
+                            </StackLayout>
+
+                            <Image Grid.Row="1"
+                               Grid.Column="0"
+                               Source="diamond.png" 
+                               Aspect="AspectFit"
+                               IsVisible="{Binding Level9Image}"
+                               />
+
+                            <Image Grid.Row="1"
+                               Grid.Column="0"
+                               Source="crown.png" 
+                               Aspect="AspectFit"
+                               IsVisible="{Binding Level10Image}"
+                               />
+
+                            <!--progress bar and exp description-->
+                            <StackLayout Grid.Row="1"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="3"
+                        Margin="10,10,0,0">
+
+
+                                <!--progress bar-->
+                                <ProgressBar VerticalOptions="Fill"
+                            HorizontalOptions="Fill"
+                            Progress="{Binding PersonalProgressBar}"
+                            ProgressColor="{StaticResource Progress}"
+                            Margin="0,5,0,0"/>
+
+                                <Label Text="{Binding PersonalLevelEXP, StringFormat='{0:F0} / 1000'}"
+                            HorizontalOptions="Start" 
+                            FontSize="Small" 
+                            Margin="0,-5,0,-10"/>
+
+                                <Label Text="{Binding PersonalRemainingEXP, StringFormat='{0:F0} more EXP to level up!'}"
+                            VerticalOptions="Center" 
+                            HorizontalOptions="StartAndExpand"
+                            TextColor="Black"
+                            FontSize="15" Padding="0,5,0,5"/>
+
+                            </StackLayout>
+
+                            <!--MY PARTY LEVEL-->
+
+                            <StackLayout
+                        Grid.Row ="2"
+                        Grid.Column ="0"
+                        Grid.ColumnSpan ="3">
+
+                                <Label Text ="{Binding PartyLevel, StringFormat='MY Party Level: {0:F0}'}"
+                        TextColor="Black"
+                        FontSize="Large"
+                        FontAttributes="Bold"
+                        Margin="0,-5,0,0"/>
+
+                            </StackLayout>
+
+                            <Image Grid.Row="3"
+                               Grid.Column="0"
+                               Source="moneybag.png" 
+                               Aspect="AspectFit"
+                               />
+
+                            <!--progress bar and exp description-->
+                            <StackLayout Grid.Row="3"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="3"
+                        Margin="10,10,0,0">
+
+
+                                <!--progress bar-->
+                                <ProgressBar VerticalOptions="Fill"
+                            HorizontalOptions="Fill"
+                            Progress="{Binding PartyProgressBar}"
+                            ProgressColor="{StaticResource Progress}"
+                            Margin="0,5,0,0"/>
+
+                                <!--remaining exp-->
+                                <Label HorizontalOptions="Start" 
+                            FontSize="Small" 
+                            Text="{Binding PartyLevelEXP, StringFormat='{0:F0} / 1000'}"
+                            Margin="0,-5,0,-10"/>
+
+                                <Label Text="{Binding PartyRemainingEXP, StringFormat='{0:F0} more EXP to level up!'}"
+                            VerticalOptions="Center" 
+                            HorizontalOptions="StartAndExpand"
+                            TextColor="Black"
+                            FontSize="15" Padding="0,5,0,5"/>
+
+                            </StackLayout>
+
+                        </Grid>
+
+                    </StackLayout>
+
+
+                    <!--MY CABINET-->
+                    <StackLayout
+                    
+                    Grid.Row ="4"
+                    Grid.Column ="0"
+                    Grid.ColumnSpan ="4"
+                    HorizontalOptions="FillAndExpand"
+                    >
+
+                        <Label Text="My Cabinet"
+                    TextColor="Black"
+                    BackgroundColor="{StaticResource Primary}"
+                    FontSize="20"
+                    FontAttributes="Bold"
+                    Margin="0,10,0,0"
+                    Padding="10,5,10,5"
+                    />
+
+                    </StackLayout>
+
+
+                    <!--Trophies-->
+
+                    <StackLayout
+
+                    Grid.Row ="5"
+                    Grid.Column ="0"
+                    Grid.ColumnSpan ="4"
+                    >
+
+                        <Grid>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="80" />
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="80" />
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="80" />
+                                <RowDefinition Height="30" />
+                            </Grid.RowDefinitions>
+
+                            <!--1st row-->
+
+                            <ImageButton Grid.Row="0"
+                        Grid.Column="0"
+                        Source="trophy.png" 
+                        Aspect="AspectFit"
+                        BackgroundColor="White"
+                                     Clicked="Trophy1ButtonClicked"
+                                     IsVisible="true"
+                        />
+
+                            <ImageButton Grid.Row="0"
+                        Grid.Column="1"
+                        Source="trophy2.png" 
+                        Aspect="AspectFit"
+                                     BackgroundColor="White"
+                                     Clicked="Trophy2ButtonClicked"
+                                     IsVisible="true"
+                        />
+
+                            <ImageButton Grid.Row="0"
+                        Grid.Column="2"
+                        Source="trophy3.png" 
+                        Aspect="AspectFit"
+                                     BackgroundColor="White"
+                                     Clicked="Trophy3ButtonClicked"
+                                     IsVisible="true"
+                        />
+
+                            <BoxView
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="3"
+                            BackgroundColor = "{StaticResource Secondary}"
+                            HeightRequest = "10"
+                            Margin="0,0,0,20">
+                            </BoxView>
+
+                            <!--2nd row-->
+
+                            <ImageButton Grid.Row="2"
+                        Grid.Column="0"
+                        Source="trophy4.png" 
+                        Aspect="AspectFit"
+                                     BackgroundColor="White"
+                                     Clicked="Trophy4ButtonClicked"
+                                     IsVisible="true"
+                        />
+
+                            <ImageButton Grid.Row="2"
+                        Grid.Column="1"
+                        Source="trophy5.png" 
+                        Aspect="AspectFit"
+                                     BackgroundColor="White"
+                                     Clicked="Trophy5ButtonClicked"
+                                     IsVisible="true"
+                        />
+
+                            <ImageButton Grid.Row="2"
+                        Grid.Column="2"
+                        Source="trophy6.png" 
+                        Aspect="AspectFit"
+                                     BackgroundColor="White"
+                                     Clicked="Trophy6ButtonClicked"
+                                     IsVisible="{Binding Trophy6Gained}"
+                        />
+
+                            <BoxView
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="3"
+                            BackgroundColor = "{StaticResource Secondary}"
+                            HeightRequest = "10"
+                            Margin="0,0,0,20">
+                            </BoxView>
+
+                            <!--3rd row-->
+
+                            <ImageButton Grid.Row="4"
+                        Grid.Column="0"
+                        Source="trophy7.png" 
+                        Aspect="AspectFit"
+                                     BackgroundColor="White"
+                                     IsVisible="{Binding Trophy7Gained}"
+                        />
+
+                            <ImageButton Grid.Row="4"
+                        Grid.Column="1"
+                        Source="trophy8.png" 
+                        Aspect="AspectFit"
+                                     BackgroundColor="White"
+                                     IsVisible="{Binding Trophy8Gained}"
+                        />
+
+                            <ImageButton Grid.Row="4"
+                        Grid.Column="2"
+                        Source="trophy9.png" 
+                        Aspect="AspectFit"
+                                     BackgroundColor="White"
+                                     IsVisible="{Binding Trophy9Gained}"
+                        />
+
+                            <BoxView
+                            Grid.Row="5"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="3"
+                            BackgroundColor = "{StaticResource Secondary}"
+                            HeightRequest = "10"
+                            Margin="0,0,0,20">
+                            </BoxView>
+
+                        </Grid>
+                    </StackLayout>
+
+
+                    <!--ON GOING TROPHIES-->
+                    <StackLayout
+                    
+                    Grid.Row ="6"
+                    Grid.Column ="0"
+                    Grid.ColumnSpan ="4"
+                    HorizontalOptions="FillAndExpand"
+                    >
+
+                        <Label Text="My Progress"
+                    TextColor="Black"
+                    BackgroundColor="{StaticResource Primary}"
+                    FontSize="20"
+                    FontAttributes="Bold"
+                    Margin="0,40,0,0"
+                    Padding="10,5,10,5"
+                    />
+
+                    </StackLayout>
+
+                    <StackLayout
+
+                    Grid.Row ="7"
+                    Grid.Column ="0"
+                    Grid.ColumnSpan ="4"
+                    >
+
+                        <Grid>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="80" />
+                                <RowDefinition Height="80" />
+                                <RowDefinition Height="80" />
+                            </Grid.RowDefinitions>
+
+                            <!--1st row-->
+
+                            <Image Grid.Row="0"
+                               Grid.Column="0"
+                               Source="{Binding MyProgressImage1}" 
+                               Aspect="AspectFit"
+                               />
+
+                            <!--progress bar and exp description-->
+                            <StackLayout Grid.Row="0"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="3"
+                        Margin="10,10,0,0">
+
+                                <Label Text="{Binding MyProgressTitle1}" 
+                            VerticalOptions="Center" 
+                            HorizontalOptions="StartAndExpand"
+                            TextColor="Black"
+                            FontSize="25"
+                            FontAttributes="Bold"
+                            />
+
+                                <!--progress bar-->
+                                <ProgressBar VerticalOptions="Fill"
+                            HorizontalOptions="Fill"
+                            Progress="{Binding MyProgressEXPBar1}"
+                            ProgressColor="{StaticResource Progress}"
+                            Margin="0,-10,0,0"/>
+
+                                <!--remaining exp-->
+                                <Label HorizontalOptions="Start" 
+                            FontSize="Small" 
+                            Text="{Binding MyProgressEXP1}" 
+                            Margin="0,-10,0,0"/>
+
+                            </StackLayout>
+
+                            <!--2nd row-->
+
+                            <Image Grid.Row="1"
+                               Grid.Column="0"
+                               Source="{Binding MyProgressImage2}" 
+                               Aspect="AspectFit"
+                               />
+
+                            <!--progress bar and exp description-->
+                            <StackLayout Grid.Row="1"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="3"
+                        Margin="10,10,0,0">
+
+                                <Label Text="{Binding MyProgressTitle2}" 
+                            VerticalOptions="Center" 
+                            HorizontalOptions="StartAndExpand"
+                            TextColor="Black"
+                            FontSize="25"
+                            FontAttributes="Bold"
+                            />
+
+                                <!--progress bar-->
+                                <ProgressBar VerticalOptions="Fill"
+                            HorizontalOptions="Fill"
+                            Progress="{Binding MyProgressEXPBar2}"
+                            ProgressColor="{StaticResource Progress}"
+                            Margin="0,-10,0,0"/>
+
+                                <!--remaining exp-->
+                                <Label HorizontalOptions="Start" 
+                            FontSize="Small" 
+                            Text="{Binding MyProgressEXP2}" 
+                            Margin="0,-10,0,0"/>
+
+                            </StackLayout>
+
+                            <!--3rd row-->
+
+                            <Image Grid.Row="2"
+                               Grid.Column="0"
+                               Source="{Binding MyProgressImage3}" 
+                               Aspect="AspectFit"
+                               />
+
+                            <!--progress bar and exp description-->
+                            <StackLayout Grid.Row="2"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="3"
+                        Margin="10,10,0,0">
+
+                                <Label Text="{Binding MyProgressTitle3}" 
+                            VerticalOptions="Center" 
+                            HorizontalOptions="StartAndExpand"
+                            TextColor="Black"
+                            FontSize="25"
+                            FontAttributes="Bold"
+                            />
+
+                                <!--progress bar-->
+                                <ProgressBar VerticalOptions="Fill"
+                            HorizontalOptions="Fill"
+                            Progress="{Binding MyProgressEXPBar3}"
+                            ProgressColor="{StaticResource Progress}"
+                            Margin="0,-10,0,0"/>
+
+                                <!--remaining exp-->
+                                <Label HorizontalOptions="Start" 
+                            FontSize="Small" 
+                            Text="{Binding MyProgressEXP3}" 
+                            Margin="0,-10,0,0"/>
+
+                            </StackLayout>
+                        </Grid>
+                    </StackLayout>
+
+                    <!--STATISTICS-->
+                    <StackLayout
+                    
+                    Grid.Row ="8"
+                    Grid.Column ="0"
+                    Grid.ColumnSpan ="4"
+                    HorizontalOptions="FillAndExpand"
+                    >
+
+                        <Label Text="Statistics"
+                    TextColor="Black"
+                    BackgroundColor="{StaticResource Primary}"
+                    FontSize="20"
+                    FontAttributes="Bold"
+                    Margin="0,40,0,0"
+                    Padding="10,5,10,5"
+                    />
+
+                    </StackLayout>
+
+                    <StackLayout
+
+                    Grid.Row ="9"
+                    Grid.Column ="0"
+                    Grid.ColumnSpan ="4"
+                    >
+
+                        <Grid>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="80" />
+                                <RowDefinition Height="80" />
+                                <RowDefinition Height="80" />
+                            </Grid.RowDefinitions>
+
+                            <!--questions answered-->
+                            <StackLayout Grid.Row="0"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="3"
+                        Margin="10,10,0,0">
+
+                                <Label HorizontalOptions="Start" 
+                        FontSize="55" 
+                        Text="{Binding QuestionsAnswered}"
+                        FontAttributes="Bold"
+                        TextColor="{StaticResource PrimaryText}"/>
+
+                            </StackLayout>
+
+                            <StackLayout Grid.Row="0"
+                        Grid.Column="2"
+                        Grid.ColumnSpan="3"
+                        Margin="10,35,0,0">
+
+                                <Label HorizontalOptions="Start" 
+                        FontSize="20" 
+                        Text="Questions Answered"
+                        FontAttributes="Bold"/>
+
+                            </StackLayout>
+
+                            <!--activities completed-->
+                            <StackLayout Grid.Row="1"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="3"
+                        Margin="10,10,0,0">
+
+                                <Label HorizontalOptions="Start" 
+                        FontSize="55" 
+                        Text="{Binding QuestsCompleted}"
+                        FontAttributes="Bold"
+                        TextColor="{StaticResource PrimaryText}"/>
+
+                            </StackLayout>
+
+                            <StackLayout Grid.Row="1"
+                        Grid.Column="2"
+                        Grid.ColumnSpan="3"
+                        Margin="10,35,0,0">
+
+                                <Label HorizontalOptions="Start" 
+                        FontSize="20" 
+                        Text="Quests Completed"
+                        FontAttributes="Bold"/>
+
+                            </StackLayout>
+                        </Grid>
+                    </StackLayout>
+
+                </Grid>
+            </ScrollView>
+        </RefreshView>
+        
+    </ContentPage.Content>
+
+
+</ContentPage>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Written by Shannon Tetley N6255078-->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Picolo.Views.QuizSubmitPage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackLayout>
+                <Label Text="Submit Answers"
+                    VerticalOptions="Start" 
+                    HorizontalOptions="CenterAndExpand" 
+                    FontSize="20" Padding="0,0,0,0"/>
+                <Button  Text="Submit" Padding="0,0,0,0"
+                         VerticalOptions="Start" 
+                         HorizontalOptions="CenterAndExpand" 
+                         BackgroundColor="#3979B3"
+                         Command="{Binding SubmitCommand}"/>
+                <Image    Source="list.png" 
+                          Aspect="AspectFit"
+                          IsVisible="{Binding Level9Image}"
+                               />
+                <Button  Text="Back" Padding="0,0,0,0"
+                         VerticalOptions="Start" 
+                         HorizontalOptions="CenterAndExpand" 
+                         BackgroundColor="#3979B3"
+                         Command="{Binding CloseQuestionCommand}"/>              
+                
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

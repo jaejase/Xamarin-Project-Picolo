@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Written by Aaron Hayton N9946977-->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Picolo.Views.HatQuizResult"
+             Title="{Binding Title}"
+             >
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior
+            IsEnabled="False"
+            IconOverride="test.png"/>
+    </Shell.BackButtonBehavior>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="25,35,25,35">
+                <Label Text="{Binding HatResult, StringFormat='You are a {0} hat thinker'}"
+                   FontSize="Title"
+                   HorizontalTextAlignment="Center"
+                   Padding="0,0,0,40"
+                   TextColor="#47525E"
+                   />
+
+                <Grid Margin="10,10,10,10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.4*" />
+                    </Grid.RowDefinitions>
+                    <Image Source="{Binding HatImg}" 
+                           Aspect="AspectFit"
+                           Grid.Row="0"
+                           />
+                </Grid>
+                <Label HorizontalOptions="CenterAndExpand"  
+                   Text="{Binding HatDescription}"
+                   FontSize="Subtitle"
+                   HorizontalTextAlignment="Center"
+                   TextColor="#47525E"
+                   />
+                <!--="{Binding HatDescription}"-->
+                <Button Text="Choose a group"
+                    FontSize="Title"
+                    VerticalOptions="Center" 
+                    Margin="0,30,0,0"
+                    BackgroundColor="{StaticResource Secondary}"
+                    CornerRadius="5"
+                    Command="{Binding ChooseGroup}"
+                    />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
